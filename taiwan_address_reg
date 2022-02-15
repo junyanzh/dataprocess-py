@@ -1,0 +1,10 @@
+import re
+r = re.compile('(?P<zipcode>^\d{5}|^\d{3})?(?P<縣市>\D+?[縣市])?(?P<鄉鎮市區>\D+?[鄉鎮市區])?(?P<村里>\D+?[村里])?(?P<路街道段>\D+[路街道段])?(?P<鄰>\d+鄰)?(?P<巷>\d+巷)?(?P<弄>\d+弄)?(?P<號>\d+號)?(?P<樓>\d+樓)?(?P<其他>.+)?')
+example = '新北市烏來區新烏路5段33號'
+addressgroup=r.match(example)
+
+#地址全段分割
+addressgroup.groupdict()
+
+#取鄉鎮市區
+addressgroup.groupdict().get('鄉鎮市區')
